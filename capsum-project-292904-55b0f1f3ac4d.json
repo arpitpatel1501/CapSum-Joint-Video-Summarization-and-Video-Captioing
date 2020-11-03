@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "capsum-project-292904",
+  "private_key_id": "55b0f1f3ac4db6b61ba40f021453483335cbca40",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQC+VSamfnRFU/aq\nlK1yb+OXaRm7FwT/v5uShxAulqqY01drN7IX0DB5n0EMMo7ZueuNx99YPszsfmWT\nUJ1ng728fKiWPeiLJWlG83tonFzhm3Iel10yF/UReY4c6BYRwg+eT7Gb+ihNeN/H\nT98h/I2JD6kZFygLvmxdMS+lisSrJ1y8Q+9ndTAee05wFv/hqgOuI5Gqa1eND/LN\nh/rFpY0ysZ5Ld9N3mOrg8y8au45QehhkdTrTvmVD5TQuFGH86fNF5geeXXhmnDQG\nKCiNry0vbNK7s3hszeNFqxVOuRUNLG4YcCgTDh7K0eKL1UZ5fTHLBoEuuJA1YGnv\n9YEDvO/vAgMBAAECggEADZfWPVDNq//dn3wj0Qb1qaQbbtWriTpdeX8E5FblUynQ\n1frx0KqRM7ZwdlcMBbe1/3e1Vz+Q8hjq1zUMMM7jV5lNjwFX4MwosyUDfMqiBYjN\nAytLQB8e5QMZ562ZmeYSqHtHk3yvsSy/SqRFKs+3KgFA0eZp+UC9y4AOR5PcDN8Q\npdK+I4RiaDV1E5wn9y5m5/6AytsX+9negbqsWAL9MWqVDAQKH9IXirwxCu68wkUD\nBhs1GbWNIrVQiOUWiUo6n7vnqLhC4W8/CvaZT2WwUZIPtWsD87LErZHPZ1LU18CP\nB95V3VEo9dbshcQbYZwnSbkw41nIp7J/Lv/fSRDy/QKBgQDwydGottbTNnGE1Wy/\nSdm6kw6H0Fz7AEUqPzvaGC4unupUG+zjArRBV9y8cbKGlbssxFS221QGSQmFsiNi\nTLYCk9w+i3f6a4kifo2blyvqeQB7CJ428h5j9xRwe0ZRSkarU6ntmm/4KDZ9KWzm\n78JcQGYYtabZiLRrFUdRM+1zTQKBgQDKW1R/LPdpGSlpuFoJtyk+AiVuapEJY6Rl\nMm1g0yIIthWkdFgltbjp68Wl7hmJoTc7v0pfjE1yIuXJb/TbyaYe6i5a20am/cZj\nJoonjwCjGS5+nb1eNbP9MkjQdxw6Y+XMzyV3jqGU330oQJlfMq5Jh22XICAuGiK3\nsjr7xdfaKwKBgCnTZM/hsr9NnbptOE6iDWgTU1rUHtKa4WjNQyBHQv5mLF4f264z\nMgyHrpgtR82JBNJp6C07PAU7eqP2pZ7VpGgeNwvGPjkJpPCQ+xgj0kUQb7zvakwx\nEoZazPoc78H/HPd1uPbE9N4uXgivwXL8As7zgMiaBTmUPYK8V38LfhuhAoGAU1bf\n6uyrDLbXLnpFYsDzlF0v61SqXRKTjzYAhCMQXkQXj7522zkHahe3NApmrB8gb1Pu\nHoHbF4m114trbeWTrCHIa5TpeTcFMKqbtYUYvxNM6cqvRhCaC0pdYLXdg1LHPt2F\nUcMFWxncIurP/7wQuam0AcyyVCphaARYdH7b0jcCgYAi8+BIishZdi0EpH49t46Q\n27NPQPbBrOVo4lbyIeHfTWyoSCcl5Siz9ALlYOrbtdnbgCb2HbaVofjbnIaFjfC8\niwp0oeGnEuH2FgHztqZpCRZdnZgDMlCMyh1T9yMI5QEIQznKPv2J+6FPBy3l9GMK\nI3mJi3sexmCQQ47XQn/tFA==\n-----END PRIVATE KEY-----\n",
+  "client_email": "capsum-storage-service@capsum-project-292904.iam.gserviceaccount.com",
+  "client_id": "108946984974220802764",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/capsum-storage-service%40capsum-project-292904.iam.gserviceaccount.com"
+}

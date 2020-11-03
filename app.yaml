@@ -1,0 +1,10 @@
+runtime: custom
+env: flex
+service: vscapnew
+
+manual_scaling:
+  instances: 1
+resources:
+  cpu: 4
+  memory_gb: 6
+  disk_size_gb: 20

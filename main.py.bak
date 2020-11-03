@@ -1,0 +1,109 @@
+import os
+import urllib.request
+from app import app
+from flask import Flask, request, redirect, jsonify, send_from_directory
+from werkzeug.utils import secure_filename
+from flask_cors import CORS, cross_origin
+
+from google.cloud import storage
+
+import sys
+
+ALLOWED_EXTENSIONS = set(['mp4'])
+
+def allowed_file(filename):
+	return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+@app.route('/login', methods=['POST'])
+@cross_origin()
+def login():
+	if 'user' not in request.get_json():
+		resp = jsonify({'message' : 'user not provided'})
+		resp.status_code = 400
+		return resp
+	else:
+		#print(request.get_json()['user']['email'])
+		########//send this to Db
+		return jsonify({'message' : 'OK Logged in'})
+
+@app.route('/getvid', methods=['POST'])
+@cross_origin()
+def getVids():
+	if 'user' not in request.get_json():
+		resp = jsonify({'message' : 'No file part in the request'})
+		resp.status_code = 400
+		return resp
+	else:
+		#print(request.get_json()['user'])
+		########//get vids from gcp storage
+		resp = []
+		for file in os.listdir('./vids/'):
+			if os.path.isfile('./vids/'+file):
+				if(file.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS):
+						#upload_file
+					thumbnail=file.rsplit('.', 1)[0]+'.png'
+					d = {'vid':file, 'thumb':thumbnail}
+					resp.append(d)
+		resp = jsonify({'message' : 'test ok'})
+		return resp
+
+
+
+@app.route('/upload', methods=['POST'])
+@cross_origin()
+def upload_file():
+	# check if the post request has the file part
+	if 'file' not in request.files:
+		resp = jsonify({'message' : 'No file part in the request'})
+		resp.status_code = 400
+		return resp
+	file = request.files['file']
+	if file.filename == '':
+		resp = jsonify({'message' : 'No file selected for uploading'})
+		resp.status_code = 400
+		return resp
+	if file and allowed_file(file.filename):
+
+		#make a connection with GCP cloud storage
+		storage_client =  storage.Client.from_service_account_json('capsum-project-292904-55b0f1f3ac4d.json')
+		BUCKET_NAME = 'capsum_video_storage_bucket'
+		bucket = storage_client.get_bucket(BUCKET_NAME)
+
+		filename = secure_filename(file.filename)
+		file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+		os.system('cp '+os.path.join(app.config['UPLOAD_FOLDER'], filename)+' ./process/')
+		
+		#os.system('python summarizer/test.py process/'+filename)
+		process_folder=filename.rsplit('.', 1)[0]
+		captions=[]
+		
+		from caption.gen_cap import GenCap
+		files=os.listdir('./process/'+process_folder+'/output/')
+		#captions=GenCap('./process/'+process_folder+'/output/',files)
+		
+		##generate thumbnails
+		for file in files:
+			if not os.path.exists('./process/'+process_folder+'/output/'+file.rsplit('.', 1)[0]+'.png'):
+				os.system('ffmpeg -i '+'./process/'+process_folder+'/output/'+file+' -ss 00:00:01 -vframes 1 ./process/'+process_folder+'/output/'+file.rsplit('.', 1)[0]+'.png')
+					
+		#########upload summarized video to gcp storage
+		uemail = request.headers.get('email')
+		#uemail= 'sumit.p@ahduni.edu.in'
+		for fname in files:
+			fnames = "%s/%s" % (uemail+'/'+filename.rsplit('.', 1)[0],fname)
+			#blob = bucket.blob(fnames)
+			#with open('process/'+process_folder+'/output/'+fname,'rb') as f:
+			    #blob.upload_from_file(f,timeout=120)
+
+		########send captions to DB
+		########send video data to DB
+		resp = jsonify({'message' : 'File successfully uploaded','captions':captions})
+		resp.status_code = 201
+		return resp
+	else:
+		resp = jsonify({'message' : 'Allowed file types are mp4'})
+		resp.status_code = 400
+		return resp
+
+if __name__ == "__main__":
+    app.run(threaded=True)
