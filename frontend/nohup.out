@@ -1,0 +1,10 @@
+2020/11/01 11:10:36 current FDs rlimit set to 524288, wanted limit is 8500. Nothing to do here.
+2020/11/01 11:10:36 gcloud is not in the path and -instances and -projects are empty
+2020/11/01 11:10:38 current FDs rlimit set to 524288, wanted limit is 8500. Nothing to do here.
+2020/11/01 11:10:38 gcloud is not in the path and -instances and -projects are empty
+ * Serving Flask app "app" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)

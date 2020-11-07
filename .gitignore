@@ -1,2 +1,28 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
 backend/caption/S2VT_temp_10_0.0001_300_47279.ckpt.data-00000-of-00001
 backend/caption/VGG_ILSVRC_16_layers.caffemodel
+
+# dependencies
+frontend/node_modules
+frontend/.pnp
+frontend/.pnp.js
+frontend/build
+
+# testing
+frontend/coverage
+
+# production
+frontend/build
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
