@@ -11,7 +11,7 @@ In the present day the goal of every application is to provide a method which re
 ## Models
 
 ### Architecture Diagram
-![Architecture](figures/Arch_S2VT.png)
+![Architecture](figures/architecture.png)
 
 ### CapSum
 ![CapSum](figures/CapSum.PNG)
