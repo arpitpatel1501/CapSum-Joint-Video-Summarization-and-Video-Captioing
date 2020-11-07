@@ -37,7 +37,7 @@ db_connection_name = "capsum-project-292904:us-central1:capsum-sql"
 
 #import sys
 #sys.path.insert(1, './caption/')
-#from caption.gen_cap import GenCap
+from caption.gen_cap import GenCap
 
 def insert_query_execute(db,query):
     stmt = sqlalchemy.text(query)
@@ -84,8 +84,8 @@ def login():
 		print(request.get_json()['user'])
 	
 		########//send this to Db remaining tput variable get in json
-		db = sqlalchemy.create_engine('mysql+pymysql://master_capsum:aiccsql@2020@127.0.0.1:3306/capsum_db')
-		#db = sqlalchemy.create_engine('mysql+pymysql://master_capsum:aiccsql@2020@/capsum_db?unix_socket=/cloudsql/capsum-project-292904:us-central1:capsum-sql')
+		#db = sqlalchemy.create_engine('mysql+pymysql://master_capsum:aiccsql@2020@127.0.0.1:3306/capsum_db')
+		db = sqlalchemy.create_engine('mysql+pymysql://master_capsum:aiccsql@2020@/capsum_db?unix_socket=/cloudsql/capsum-project-292904:us-central1:capsum-sql')
 		uemail = request.get_json(force=True)['user']['email']
 		uname = request.get_json(force=True)['user']['fname'] +' '+request.get_json()['user']['lname']
 		query1 = "select user_email from user;"
@@ -111,8 +111,8 @@ def getVids():
 		#print(request.get_json()['user'])
 		########//get vids from gcp storage
 		uemail = request.headers.get('email')
-		db = sqlalchemy.create_engine('mysql+pymysql://master_capsum:aiccsql@2020@127.0.0.1:3306/capsum_db')
-		#db = sqlalchemy.create_engine('mysql+pymysql://master_capsum:aiccsql@2020@/capsum_db?unix_socket=/cloudsql/capsum-project-292904:us-central1:capsum-sql')
+		#db = sqlalchemy.create_engine('mysql+pymysql://master_capsum:aiccsql@2020@127.0.0.1:3306/capsum_db')
+		db = sqlalchemy.create_engine('mysql+pymysql://master_capsum:aiccsql@2020@/capsum_db?unix_socket=/cloudsql/capsum-project-292904:us-central1:capsum-sql')
 		'''
 		resp = []
 		for file in os.listdir('./vids/'):
@@ -198,14 +198,14 @@ def upload_file():
 		print("HEREEE")
 		os.system('cp '+os.path.join(app.config['UPLOAD_FOLDER'], filename)+' ./process/')
 		
-		os.system('python3 ./summarizer/test.py ./process/'+filename)
+		#os.system('python3 ./summarizer/test.py ./process/'+filename)
 		captions=[]
 		
-		from caption.gen_cap import GenCap
+		
 		files=os.listdir('./process/'+process_folder+'/output/')
-		captions=GenCap('./process/'+process_folder+'/output/',files)
+		#captions=GenCap('./process/'+process_folder+'/output/',files)
 		#captions=GenCap('./uploads/',['summarized1.mp4'])
-		#captions=['a woman is walking', 'a man is moving a gun', 'a man is walking', 'a man is driving a road', 'a man is pouring a water into a water','asdasd']
+		captions=['a woman is walking', 'a man is moving a gun', 'a man is walking', 'a man is driving a road', 'a man is pouring a water into a water','asdasd']
 		print(captions)
 		'''
 		if not os.path.exists('process/'+process_folder+'/output/'+filename.rsplit('.', 1)[0]+'.png'):
@@ -252,7 +252,7 @@ def upload_file():
 		########send captions to DB
 		########send video data to DB
 		db = sqlalchemy.create_engine('mysql+pymysql://master_capsum:aiccsql@2020@127.0.0.1:3306/capsum_db')
-		#db = sqlalchemy.create_engine('mysql+pymysql://master_capsum:aiccsql@2020@/capsum_db?unix_socket=/cloudsql/capsum-project-292904:us-central1:capsum-sql')
+
 
 		#get user id
 		q =  "select user_id from user where user_email = '"+uemail+"';"

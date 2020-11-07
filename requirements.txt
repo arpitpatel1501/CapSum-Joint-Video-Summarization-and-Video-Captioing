@@ -70,3 +70,5 @@ tifffile==2020.10.1
 urllib3==1.25.11
 Werkzeug==1.0.1
 wrapt==1.12.1
+torch==1.6.0
+torchvision==0.7.0
