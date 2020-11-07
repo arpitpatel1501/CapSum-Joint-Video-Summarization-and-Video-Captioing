@@ -8,26 +8,30 @@ In the present day the goal of every application is to provide a method which re
   
  Microsoft Video Description Corpus, is a collection of Youtube clips which is collected on Mechanical Turk by requesting workers to pick short clips depicting a single activity. The videos were then used to elicit single sentence descriptions from annotators. Also this dataset has more than one description for individual clips. While prepossessing  there is division of the total dataset into three parts- Training, Validation and Testing as 60\%, 20\% and 20\% respectively. 
 
+## Models
+### Summarization
+![VASNet](figures/VASnet.png)
+
+### Captioning
+![S2VT model](figures/Arch_S2VT.png)
 
 ## Results
-###Video Summarization
+### Video Summarization
 
 For demonstration 4 videos of resolution 854x480, frame-rate 24 and duration varying from 02:00 to 06:00 are used.
 
-Link to the results: \href{https://drive.google.com/drive/folders/1je3vPMB-kVpKbc4QtK9gszDVkaSlAoJv?usp=sharing}{Summarization Result}.
+Link to the results: [Summarization Result](https://drive.google.com/drive/folders/1je3vPMB-kVpKbc4QtK9gszDVkaSlAoJv?usp=sharing)
 
-
-###Video Captioning
+### Video Captioning
 
 For testing use of clips with short time duration is done. This clips contain single activities which may include more than one person. 
 
-Link to the results: \href{https://drive.google.com/file/d/12XJpRa643sSFYkxOjCuIzT_Pobhsu3mi/view?usp=sharing}{Captioning Result}.
+Link to the results: [Captioning Result](https://drive.google.com/file/d/12XJpRa643sSFYkxOjCuIzT_Pobhsu3mi/view?usp=sharing)
 
-###Deployment
+### CapSum (Combine)
 After the summarized and captioning model is created, they are deployed. The website then receives the values of the generated which is updated for so.
 
-Link to the results:
-\href{https://drive.google.com/file/d/1PxQA_Ey1_bgZWG0SQjf05FS9spL5uVNB/view?usp=sharing}{CapSum Demo}
+Link to the results: [CapSum Demo](https://drive.google.com/file/d/1PxQA_Ey1_bgZWG0SQjf05FS9spL5uVNB/view?usp=sharing)
 
 ## Conclusions
 After applying these models, for captioning we have been able to generate results which provided near accurate results. Whereas for summarization the reduction of frames was desirable in terms of providing the frames of high importance. 
@@ -35,3 +39,4 @@ After applying these models, for captioning we have been able to generate result
 ## Reference
 1. Y. Song, J. Vallmitjana, A. Stent, and A. Jaimes, “Tvsum: Summarizingweb  videos  using  titles,”  inProceedings of the IEEE conference oncomputer vision and pattern recognition, 2015, pp. 5179–5187.
 2. D. Chen and W. B. Dolan, “Collecting highly parallel data for paraphraseevaluation,”  inProceedings of the 49th Annual Meeting of the Associ-ation for Computational Linguistics: Human Language Technologies,2011, pp. 190–200.
+3. J. Fajtl,  H.  Sokeh,  V.  Argyriou,  D.  Monekosso,  and  P.  Remagnino,“Summarizing videos with attention,” 12 2018.
