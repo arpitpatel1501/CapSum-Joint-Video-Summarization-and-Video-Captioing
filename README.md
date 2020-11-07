@@ -14,7 +14,7 @@ In the present day the goal of every application is to provide a method which re
 ![Architecture](figures/Arch_S2VT.png)
 
 ### CapSum
-![CapSum](figures/CapSum.png)
+![CapSum](figures/CapSum.PNG)
 
 ### Summarization
 ![VASNet](figures/VASnet.png)
